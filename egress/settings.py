@@ -141,15 +141,6 @@ USE_TZ = True
 
 
 
-
-#email da pagina para o envio do erro
-#EMAIL_HOST = 'smtp.gmail.com'
-#EMAIL_HOST_PASSWORD = 'abrelogo'
-#EMAIL_HOST_USER = 'naylsonfsa2@gmail.com'
-#EMAIL_PORT = 587
-#EMAIL_USE_TLS = True
-#DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
-
 #email da pagina para o envio do erro
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_PASSWORD = ''
