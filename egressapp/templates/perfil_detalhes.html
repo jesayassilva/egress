@@ -1,0 +1,77 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Permições do Usuario {{ perfil.user}}</h2>
+<!--
+-->
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Liberação Alunos</th>
+      <th>Alunos </th>
+      <th>Turmas  </th>
+      <th>Autorização Turma </th>
+      <th>Autorização Aluno </th>
+      <th>Relatórios </th>
+      <th>Usuarios </th>
+      <th>Permissões </th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+
+        {% if perfil.gerenciar_Liberacao_Alunos %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Alunos  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Turmas  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Autorizacao_Turmas  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Autorizacao_Alunos  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Relatorios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Usuarios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Permissoes_Usuarios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+      </tr>
+  </tbody>
+</table>
+<a href="{% url 'egressapp:perfilUpdate' perfil.pk  %}" class="ui button" > Editar Permições</a>
+
+</div>
+{% include 'rodape.html' %}

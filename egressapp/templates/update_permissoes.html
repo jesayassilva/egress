@@ -1,0 +1,67 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app" >
+
+<h2>Permições do Usuario </h2>
+
+
+
+
+
+<form class="ui form" action="" method="post" enctype="multipart/form-data" >{% csrf_token %}
+
+  {% for field in form %}
+      {% if field.name == 'user' %}
+          {{ field.errors }}
+          {{ field }}
+      {% endif %}
+  {% endfor %}
+
+  <table class="ui celled table" >
+    <thead>
+      <tr>
+        <th>Gerenciar Liberação Alunos</th>
+        <th>Gerenciar Alunos</th>
+        <th>Gerenciar Turmas</th>
+        <th>Gerenciar Autorização Turma</th>
+        <th>Gerenciar Autorização Aluno</th>
+        <th>Relatórios </th>
+        <th>Gerenciar Usuarios </th>
+        <th>Gerenciar Permissões </th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+
+          {% for field in form %}
+              {% if field.name != 'user' %}
+                  {{ field.errors }}
+                  <td>{{ field }}</td>
+              {% endif %}
+          {% endfor %}
+          </tr>
+      </tbody>
+    </table>
+
+
+
+<!--
+{% for field in form %}
+{{ field.errors }}
+<div class=" field">
+  <h3>{{ field.label_tag }}</h3>
+  <h3>{{ field }}</h3>
+
+</div>
+<hr>
+
+{% endfor %}
+-->
+    <button class="ui button positive" type="submit">Salvar</button>
+    <a href="javascript:window.history.go(-1)" class="ui button" >Cancelar</a>
+</form>
+
+
+
+</div>
+{% include 'rodape.html' %}

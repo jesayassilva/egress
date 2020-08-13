@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign in Egress</title>
+    <meta charset="utf-8" />
+
+</head>
+<style media="screen">
+  @font-face {
+    font-family: 'Sigmar One';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Sigmar One'), local('SigmarOne'), url(http://themes.googleusercontent.com/static/fonts/sigmarone/v4/aRAZJs6CY7SV6eSg6Wx4jxsxEYwM7FgeyaSgU71cLG0.woff) format('woff');
+  }
+  body{
+      margin: 0;
+      font: 14px Lucida sans;
+      /*comentario */
+  background: #333 url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBw0NDQgNDQcHBwcHBw0HBwcHCA8IDQcNFREWFhURHx8YHTQgGBolGxUTITEhJzUsLi8uFx8zODUsNygtLisBCgoKDQ0NDg0PFTcdFRktLSstKy0rLSsrLSstLjg3LSsrKystKystLSs3NzctNysrKzgrKystKysvKysrLS0tLf/AABEIAKMBNQMBIgACEQEDEQH/xAAZAAEBAQEBAQAAAAAAAAAAAAAAAQIDBwT/xAAxEAEBAAEBBQUGBQUAAAAAAAAAAQIRAxIhMUETMmKB0SJRUmFxkSOhscHhBEJDcoL/xAAZAQEBAQEBAQAAAAAAAAAAAAABAAMCBQT/xAAYEQEBAQEBAAAAAAAAAAAAAAAAARExAv/aAAwDAQACEQMRAD8A8hAeg+NQCFVAhVRSFgikKRFIUAoSqgQioCVFRJAAUoI5IlVARFQFEVFSVFqOSIqUJAAURUBAEXeKkVsyUiKQoEIWKgQqoEKqCSiBSiCQCBAICIqUERUCEVARClBRFQUoAChQoKAgQioCDeOM01yumvdEtdFQas1VFIFRSBUClVAhVQKUQQUQSAARASQAFAAUoASIqAlQKCgAKAgJUqpQkawx1592ccqkmuk61rO6ezOU7199BZyy1vy6T3KyIuyorVkoilKIpCiKgKgUoikKIJKgJAgCAJCAEIAIhQFARERagQioCIqUEQbxm7Nb3r3Mf3CL7M8eU4+GOZb52gMQAF3EVqzURSFEUhRFKFQQURUgAoASBAIAREAIBARASEAFAAUABQG5jpNcuvdw+L+Akk00yv8Azj8TGWWvG8bVyytut5sgwRUBAAXYRWzJRFKURUFEUoVBBRBJRApRBJRAIASEAEQEhABEAERUSAktukmtvSN6zHlpln1y5zH6eoJpMeNmufTD3fVzytt1t1t5lQKIACIAIIAuwDVmoikKIJKqBCiKkogkogkogkogkCCQCIqgBCACAYy2ySW28pJqkjWOGvG3dwn916+rWmOPPTaZ/DL7OPqxllbxt16T5BLlnwsxm7jeevPNgQERUBAQEBAQQSdgGjhRFIFQSURSFEElEClASBBJRAJUBIEEgAEHTstO/ey67tmud8vXRO007mO547d7O+fTySOz0793PBJrlfTzTLacNJNzG85ONy+t6sIFgCAgICAIoAEgICABOqoNHCiKUKggoilACSiCSiCCiCSoCIDeOyysl03MLyz2l3Jfvz8kmFxltkmOWWV5Y4zetb9idcttl7p+Hh638ky22Vlk02eF4XZ7Obsv19/nqkvZyd/aTGz/AB7P8TL0n6/I7XTuYzZePXez+/Ty0cgI/fiIIgIEAgIAiIAQgAoCBAALqIrRwogQqoFKIqQAkoggoT6a33Ti12d66Yf73T+SmRvTCdcs74ZuT8ztNO7jhh85N6/epJjs8rNd3TH4srMZ96u7jOedzvw7OaT73+WMsreNtyvvt1qBOna6d3DHDxab+X3vLy0YyttttuWV55ZXW1BHAQSAQJUBEEAgBEQAhABEBJAQEACdQGjhQEhQIAEgAofR/S7OZTO3HW48gTn3yueW0y1smW7jLyx9n9GEE6AEgBIASAAkAREUCQBEQAhABEBIQASoAQAi/9k=);
+      /* background: #333 url('http://i.imgur.com/Ggzvfr8.jpg') no-repeat; */
+      -webkit-background-size: cover;
+         -moz-background-size: cover;
+           -o-background-size: cover;
+              background-size: cover;
+              color: #003;
+    /*   color: #fff;*/
+  }
+  a, a:active, a:focus{
+      text-decoration: none;
+      color: #fafafa;
+  }
+  #logo{
+      font: 40px 'Sigmar One';
+      text-align: center;
+      padding: 0;
+      margin: 5em 0 0;
+      text-shadow: rgba(0,0,0,1) 0 0 5px;
+      color: #FFFFFF;
+  }
+  #wrap{
+      margin: 0 auto;
+      max-width: 50%;
+      background: rgba(255,255,255,.3);
+      border-radius: 5px;
+      text-shadow: rgba(0,0,0,.5) 1px 1px 0;
+      box-shadow: rgba(0,0,0,.2) 0 0 3px;
+      text-align: center;
+      padding: 3em 1em;
+  }
+  hr{
+      margin: 1em;
+      border: 0;
+      border-top: 1px rgba(0,0,0,.2) solid;
+      border-bottom: 1px rgba(255,255,255,.2) solid;
+  }
+</style>
+
+<body ng-app="myApp" ng-controller="appCtrl">
+  {% load staticfiles %}
+        <p id="logo">Egress</p>
+        <div id="wrap">
+
+          <form class="ui form login " action="" method="post"
+          style="padding-left: 2em;padding-right: 2em;">
+          {% csrf_token %}
+          <font color="#FF0000">
+            <b>
+            {{ form.non_field_errors }}
+          </b>
+          </font>
+          {% for field in form %}
+          {{ field.errors }}
+          <div class="field">
+            <label>{{ field.label_tag }}</label>
+            {{ field }}
+          </div>
+          <p></p>
+          {% endfor %}
+          <hr>
+          <div class="botoes_iguais">
+            <button type="submit" class="ui button blue">Entrar</button>
+            <input type="hidden" name="next" value="{% url 'egressapp:index' %}" />
+            <!--<input type="hidden" name="next" value="{% url 'egressapp:liberarAlunos' %}" /> -->
+            <a href={% url 'egressapp:esqueceuSenha' %} class="ui green" >Esqueceu sua senha?</a>
+          </div>
+          </form>
+
+        </div>
+
+</body>
+</html>

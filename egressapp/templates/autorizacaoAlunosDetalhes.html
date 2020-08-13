@@ -1,0 +1,38 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Autorização Para Aluno</h2>
+
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Aluno</th>
+      <th>Turma</th>
+      <th>Motivo</th>
+      <th>Observações</th>
+      <th>Data e Hora</th>
+    </tr>
+  </thead>
+
+
+
+  <tbody>
+
+      <tr>
+        <td>{{  autorizacaoAluno.aluno.nome }}</td>
+        <td>{{  autorizacaoAluno.aluno.turma.nome }}</td>
+        <td>{{  autorizacaoAluno.motivo }}</td>
+        <td>{{  autorizacaoAluno.observacoes }}</td>
+        <td>{{  autorizacaoAluno.data }}</td>
+      </tr>
+  </tbody>
+</table>
+
+<a href="{% url 'egressapp:autorizacaoAlunoUpdate' autorizacaoAluno.pk  %}" class="ui button" > Editar </a>
+<a href="{% url 'egressapp:autorizacaoAlunoDelete' autorizacaoAluno.pk  %}" class="ui red button" > Deletar </a>
+<a href="javascript:window.history.go(-1)" class="ui secondary button" >Voltar</a>
+
+
+
+</div>
+{% include 'rodape.html' %}

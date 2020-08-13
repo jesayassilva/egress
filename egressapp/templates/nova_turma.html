@@ -1,0 +1,27 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Nova Turma</h2>
+
+<form class="ui form" method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save" class="ui button positive" />
+    <a href="javascript:window.history.go(-1)" class="ui button" >Cancelar</a>
+</form>
+
+<!--
+<form class="ui form" action="" method="post">{% csrf_token %}
+    <p>
+      <label for="id_nome">Nome:</label>
+    <input type="text" name="nome" required maxlength="20" minlength="5" id="id_nome" /></p>
+    <p>
+      <label for="id_descricao">Descricao:</label>
+      <input type="text" name="descricao" required maxlength="50" id="id_descricao" />
+    </p>
+    <input type="submit" value="Salvar" class="ui button positive" />
+    <a href="javascript:window.history.go(-1)" class="ui button" >Cancelar</a>
+</form>
+-->
+
+</div>
+{% include 'rodape.html' %}

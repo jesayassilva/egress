@@ -1,0 +1,159 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Bem Vindo - Egress</title>
+
+  <script src="{%  static 'app/js/jquery.js' %}"></script>
+  <script src="{%  static 'app/semantic/semantic.min.js' %}" ></script>
+  <link rel="stylesheet" type="text/css" href="{%  static 'app/semantic/semantic.min.css' %}" />
+
+  <script src="{% static 'js/angular.min.js' %}"></script>
+  <script src="{% static 'js/ngStorage.js' %} "></script>
+
+
+
+
+<style type="text/css">
+
+
+  body {
+    background-color: #FFFFFF;
+  }
+  .ui.menu .item img.logo {
+    margin-right: 1.5em;
+  }
+  .main.container {
+    margin-top: 7em;
+  }
+  .wireframe {
+    margin-top: 2em;
+  }
+  .ui.footer.segment {
+    margin: 5em 0em 0em;
+    padding: 5em 0em;
+  }
+
+  .esconder{
+  	display: none;
+  }
+
+  .corpo_app {
+    /* Aumentar se o menor for fixo usar*/
+    margin-top: 4%;
+    margin-left: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    font-size: 20px;
+    text-align: justify;
+  }
+
+
+
+  </style>
+
+</head>
+<body ng-app="myApp" ng-controller="appCtrl">
+  <!--<div class="ui fixed inverted menu green">-->
+   <!--  <div class="ui fixed inverted blue menu">   nao responsivo-->
+   <div class="ui inverted blue menu stackable">
+
+    <div class="ui container">
+      <h2 class="header item">
+        Egress
+      </h2>
+
+      {%if usuario.id%}
+          <a href="{% url 'egressapp:liberarAlunos' %}" class="item">Liberar Aluno</a>
+
+          <div class="ui simple dropdown item" >
+            Autorização para Aluno <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'egressapp:autorizacaoAluno' %}">Todas</a>
+              <a class="item" href="{% url 'egressapp:autorizacaoAlunoNew' %}">Nova</a>
+            </div>
+          </div>
+
+          <div class="ui simple dropdown item">
+            Autorização para Turma <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'egressapp:autorizacaoTurma' %}">Todas</a>
+              <a class="item" href="{% url 'egressapp:autorizacaoTurmaNew' %}">Nova</a>
+            </div>
+          </div>
+
+          <div class="ui simple dropdown item">
+            Alunos <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'egressapp:alunos' %}">Todos</a>
+              <a class="item" href="{% url 'egressapp:alunoNew' %}">Novo</a>
+            </div>
+          </div>
+
+          <div class="ui simple dropdown item">
+            Turmas <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'egressapp:turmas' %}">Todas</a>
+              <a class="item" href="{% url 'egressapp:turmaNew' %}">Nova</a>
+            </div>
+          </div>
+
+          <div class="ui simple dropdown item">
+            Usuarios <i class="dropdown icon"></i>
+            <div class="menu">
+              <a class="item" href="{% url 'egressapp:userNew' %}">Novo Usuário</a>
+              <a class="item" href="{% url 'egressapp:user' %}">Todos os Usuário</a>
+            </div>
+          </div>
+
+          <a href="{% url 'egressapp:perfil' %}" class="item">Permissões</a>
+
+          <a href="{% url 'egressapp:relatorios' %}" class="item">Relatórios</a>
+
+          <a href="{% url 'egressapp:logout' %}" class="item">Sair</a>
+
+
+      {% else %}
+          <a href="{% url 'egressapp:login' %}" class="item">Login</a>
+      {% endif %}
+
+    </div>
+
+
+
+  </div>
+
+
+<div class="corpo_app">
+
+<h1> Bem Vindo {{usuario.username}}! </h1>
+<p></p>
+<p></p>
+{%if usuario%}
+  <h>O Egress é um site que foi desenvolvido para realizar o gerenciamento de saída dos alunos durante o horário de aula.</h5>
+  <p></p>
+     <h2> Por que usar o Egress?</h2>
+    <p>Com o uso do egress é possivel automatizar o processo de saída dos alunos da Instituição durante o horário de aula, além de possibilitar o acompanhamento desses alunos que solicitam saída junto a Coordenação Pedagógica e Pais de alunos, bem como realizar intervenções aos alunos que mais solicitam saída</p>
+    <p></p>
+
+
+  <p>Caso necessário contate o Administrador do Sistema para ter acesso a outras permissões.</p>
+
+{%else%}
+    <h>O Egress é um site que foi desenvolvido para o realizar o gerenciamento de saída dos alunos durante o horário de aula.</h5>
+    <p></p>
+    <p></p>
+    <h2> Por que usar o Egress?</h2>
+    <p>Com o uso do egress é possivel automatizar o processo de saída dos alunos da Instituição durante o horário de aula, além de possibilitar o acompanhamento desses alunos que solicitam saída junto a Coordenação Pedagógica e Pais de alunos, bem como realizar intervenções aos alunos que mais solicitam saída</p>
+    <p></p>
+    <p></p>
+    <p>Para ter acesso ao Sistema contate o Administrador.</p>
+{%endif%}
+</div>
+{% include 'rodape.html' %}

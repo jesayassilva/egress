@@ -1,0 +1,81 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+
+    <h1>Relatório</h1>
+    <p></p>
+
+
+
+    <h3>Total de Alunos que Sairam antecipadamente em:</h3>
+
+    <table class="ui celled table" >
+      <thead>
+        <tr>
+          <th>7 Dias</th>
+          <th>15 Dias</th>
+          <th>1 Mês</th>
+          <th>2 Meses </th>
+          <th>4 Meses </th>
+          <th>6 Meses </th>
+          <th>1 Ano </th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td>{{alunos_7}}</td>
+            <td>{{alunos_15}}</td>
+            <td>{{alunos_30}}</td>
+            <td>{{alunos_60}}</td>
+            <td>{{alunos_120}}</td>
+            <td>{{alunos_180}}</td>
+            <td>{{alunos_365}}</td>
+
+
+          </tr>
+      </tbody>
+    </table>
+
+
+<h1></h1>
+
+    <h3>Total de turmas que Sairam antecipadamente em: </h3>
+
+    <table class="ui celled table" >
+      <thead>
+        <tr>
+          <th>7 Dias</th>
+          <th>15 Dias</th>
+          <th>1 Mês</th>
+          <th>2 Meses </th>
+          <th>4 Meses </th>
+          <th>6 Meses </th>
+          <th>1 Ano </th>
+        </tr>
+      </thead>
+
+      <tbody>
+          <tr>
+            <td>{{turmas_7}}</td>
+            <td>{{turmas_15}}</td>
+            <td>{{turmas_30}}</td>
+            <td>{{turmas_60}}</td>
+            <td>{{turmas_120}}</td>
+            <td>{{turmas_180}}</td>
+            <td>{{turmas_365}}</td>
+
+
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+    <a href="javascript:window.history.go(-1)" class="ui negative button" >Voltar</a>
+
+</div>
+{% include 'rodape.html' %}

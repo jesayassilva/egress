@@ -1,0 +1,33 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Novo Aluno</h2>
+
+<form action="" class="ui form" method="post">{% csrf_token %}
+<p>
+  <label for="id_nome">Nome:</label>
+  <input type="text" name="nome" maxlength="50" id="id_nome" required />
+</p>
+<p>
+  <label for="id_matricula">Matricula:</label>
+  <input type="text" name="matricula" maxlength="15" id="id_matricula" required />
+</p>
+<p>
+  <label for="id_cpf">Cpf:</label>
+  <input type="text" name="cpf" maxlength="11" id="id_cpf" required maxlength="11" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"/>
+</p>
+
+  {% for field in form %}
+    {% if field.name == 'turma'  %}
+    <label>{{ field.label_tag }}</label>
+    {{ field }}
+  {% endif %}
+  {% endfor %}
+  <p></p>
+    <input type="submit" value="Salvar" class="ui button positive" />
+    <a href="javascript:window.history.go(-1)" class="ui button" >Cancelar</a>
+</form>
+
+
+</div>
+{% include 'rodape.html' %}

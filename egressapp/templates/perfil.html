@@ -1,0 +1,98 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Permições dos Usuarios</h2>
+<!--
+user = models.OneToOneField(User, on_delete=models.CASCADE)
+gerenciar_Liberacao_Alunos = models.BooleanField(default = True)
+gerenciar_Alunos
+gerenciar_Turmas
+gerenciar_Autorizacao_Turmas
+gerenciar_Autorizacao_Alunos
+gerenciar_Estatistica
+gerenciar_Usuarios
+gerenciar_Permissoes_Usuarios
+
+
+-->
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Nome do Usuario</th>
+      <th>Liberação Alunos</th>
+      <th>Alunos </th>
+      <th>Turmas  </th>
+      <th>Autorização Turma </th>
+      <th>Autorização Aluno </th>
+      <th>Relatórios </th>
+      <th>Usuarios </th>
+      <th>Permissões </th>
+
+      <th colspan="2"> Opções</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for perfil in perfil  %}
+      <tr>
+        <td>{{  perfil.user}}</td>
+
+        {% if perfil.gerenciar_Liberacao_Alunos  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Alunos  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Turmas  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Autorizacao_Turmas  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Autorizacao_Alunos  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Relatorios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Usuarios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        {% if perfil.gerenciar_Permissoes_Usuarios  %}
+            <td class="positive">Sim</td>
+        {% else  %}
+            <td class="negative">Não</td>
+        {% endif  %}
+
+        <td> <a href="{% url 'egressapp:perfilUpdate' perfil.pk  %}" class="ui button" > Editar Permições</a> </td>
+        <td> <a href="{% url 'egressapp:perfilDetalhes' perfil.pk  %}" class="ui blue button" > Visualizar </a> </td>
+
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% include 'rodape.html' %}

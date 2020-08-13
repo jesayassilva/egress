@@ -1,0 +1,39 @@
+
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Autorizações Para Turmas</h2>
+
+
+<table  class="ui celled table" >
+
+  <thead>
+    <tr>
+      <th>Turma</th>
+      <th>Motivo</th>
+      <th>Observações</th>
+      <th>Data e Hora</th>
+      <th colspan="3"> Opções</th>
+    </tr>
+  </thead>
+
+<a href="{% url 'egressapp:autorizacaoTurmaNew'%}" class="ui button positive" > Novo Autorização Para Turma </a>
+
+  <tbody>
+      {% for autorizacaoTurma in autorizacaoTurmas  %}
+      <tr>
+        <td>{{  autorizacaoTurma.turma.nome }}</td>
+        <td>{{  autorizacaoTurma.motivo }}</td>
+        <td>{{  autorizacaoTurma.observacoes }}</td>
+        <td>{{  autorizacaoTurma.data }}</td>
+        <td> <a href="{% url 'egressapp:autorizacaoTurmaUpdate' autorizacaoTurma.pk  %}" class="ui button" > Editar </a> </td>
+        <td> <a href="{% url 'egressapp:autorizacaoTurmaDelete' autorizacaoTurma.pk  %}" class="ui red button" > Deletar </a> </td>
+        <td> <a href="{% url 'egressapp:autorizacaoTurmaDetalhes' autorizacaoTurma.pk  %}" class="ui blue button" > Visualizar </a> </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+
+</div>
+{% include 'rodape.html' %}

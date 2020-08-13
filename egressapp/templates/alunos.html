@@ -1,0 +1,38 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Alunos</h2>
+
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Matricula</th>
+      <th>Cpf</th>
+      <th>Turma</th>
+      <th colspan="4"> Opções</th>
+    </tr>
+  </thead>
+
+<a href="{% url 'egressapp:alunoNew'%}" class="ui button positive" > Novo Aluno </a>
+
+  <tbody>
+    {% for aluno in alunos  %}
+      <tr>
+        <td>{{  aluno.nome }}</td>
+        <td>{{  aluno.matricula }}</td>
+        <td>{{  aluno.cpf }}</td>
+        <td>{{  aluno.turma.nome }}</td>
+        <td> <a href="{% url 'egressapp:alunoUpdate' aluno.pk  %}" class="ui button" > Editar </a> </td>
+        <td> <a href="{% url 'egressapp:alunoDelete' aluno.pk  %}" class="ui red button"  > Deletar </a> </td>
+        <td> <a href="{% url 'egressapp:alunoDetalhes' aluno.pk  %}" class="ui blue button" > Visualizar </a> </td>
+        <td> <a href="{% url 'egressapp:autorizacaoAlunoEspecificoNew' aluno.pk %}" class="ui button positive" > Autorizar Saída </a> </td>
+
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+</div>
+{% include 'rodape.html' %}

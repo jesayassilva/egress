@@ -1,0 +1,41 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+<h2>Autorizações Para Alunos</h2>
+
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Aluno</th>
+      <th>Turma</th>
+      <th>Motivo</th>
+      <th>Observações</th>
+      <th>Data e Hora</th>
+      <th colspan="3"> Opções</th>
+    </tr>
+  </thead>
+
+<a href="{% url 'egressapp:autorizacaoAlunoNew'%}" class="ui button positive" > Novo Autorização Para Aluno </a>
+
+  <tbody>
+    {% for autorizacaoAluno in autorizacaoAlunos  %}
+      <tr>
+        <td>{{  autorizacaoAluno.aluno.nome }}</td>
+        <td>{{  autorizacaoAluno.aluno.turma.nome }}</td>
+        <td>{{  autorizacaoAluno.motivo }}</td>
+        <td>{{  autorizacaoAluno.observacoes }}</td>
+        <td>{{  autorizacaoAluno.data }}</td>
+        <td> <a href="{% url 'egressapp:autorizacaoAlunoUpdate' autorizacaoAluno.pk  %}" class="ui button" > Editar </a> </td>
+        <td> <a href="{% url 'egressapp:autorizacaoAlunoDelete' autorizacaoAluno.pk  %}" class="ui red button" > Deletar </a> </td>
+        <td> <a href="{% url 'egressapp:autorizacaoAlunoDetalhes' autorizacaoAluno.pk  %}" class="ui blue button" > Visualizar </a> </td>
+
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+
+</div>
+{% include 'rodape.html' %}

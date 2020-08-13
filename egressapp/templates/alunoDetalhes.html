@@ -1,0 +1,82 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+  <h2>Aluno</h2>
+
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Matricula</th>
+      <th>Cpf</th>
+      <th>Turma</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td>{{  aluno.nome }}</td>
+        <td>{{  aluno.matricula }}</td>
+        <td>{{  aluno.cpf }}</td>
+        <td>{{  aluno.turma.nome }}</td>
+      </tr>
+  </tbody>
+</table>
+<a href="{% url 'egressapp:alunoDelete' aluno.pk  %}"  class="ui red button" > Deletar </a>
+<a href="{% url 'egressapp:alunoUpdate' aluno.pk  %}"  class="ui button" > Editar </a>
+<a href="javascript:window.history.go(-1)" class="ui secondary button" >Voltar</a>
+<a href="{% url 'egressapp:autorizacaoAlunoEspecificoNew' aluno.pk %}" class="ui button positive" > Autorizar Saida do Aluno </a>
+<h1></h1>
+
+<table class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Aluno</th>
+      <th>Turma</th>
+      <th>Motivo</th>
+      <th>Observações</th>
+      <th>Data e Hora</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {% for autorizacaoAluno in autorizacaoAlunos  %}
+      <tr>
+        <td>{{  autorizacaoAluno.aluno.nome }}</td>
+        <td>{{  autorizacaoAluno.aluno.turma.nome }}</td>
+        <td>{{  autorizacaoAluno.motivo }}</td>
+        <td>{{  autorizacaoAluno.observacoes }}</td>
+        <td>{{  autorizacaoAluno.data }}</td>
+
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+<table  class="ui celled table" >
+  <thead>
+    <tr>
+      <th>Turma</th>
+      <th>Motivo</th>
+      <th>Observações</th>
+      <th>Data e Hora</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      {% for autorizacaoTurma in autorizacaoTurma  %}
+      <tr>
+        <td>{{  autorizacaoTurma.turma.nome }}</td>
+        <td>{{  autorizacaoTurma.motivo }}</td>
+        <td>{{  autorizacaoTurma.observacoes }}</td>
+        <td>{{  autorizacaoTurma.data }}</td>
+      </tr>
+      {% endfor %}
+  </tbody>
+</table>
+
+
+
+
+</div>
+{% include 'rodape.html' %}

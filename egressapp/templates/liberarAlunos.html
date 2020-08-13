@@ -1,0 +1,108 @@
+{% include 'cabecalho.html' %}
+<div class="corpo_app">
+
+
+<form class="ui form" action="" method="post">{% csrf_token %}
+    <p>
+      <label for="id_cpf">CPF: </label>
+      <p>Ex: "000.000.000-00"</p>
+      <input type="text" name="name_cpf"  id="id_cpf" required maxlength="14" pattern="[0-9][0-9][0-9][.][0-9][0-9][0-9][.][0-9][0-9][0-9][-][0-9][0-9]"  autofocus />
+      <!--<input type="text" name="name_cpf"  id="id_cpf" required maxlength="11" pattern="[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]"  autofocus /> -->
+      <!--<input type="number" name="count" min="1" max="100">  required maxlength="11" -->
+    </p>
+    <input type="submit" value="Pesquisar" class="ui button positive" />
+
+
+</form>
+
+{%if exibir == 0 %}
+<p></p>
+<h3>Informe o CPF do aluno para verificar se ele está autorizado a sair no momento!</h3>
+
+{% elif exibir == 1 %}
+<table class="ui celled table" >
+          <!--Se nao autorizado vai mostrar mesagem ou mostrar a msg ao abrir a tela primeira vez-->
+            <p></p>
+              <!--se esta autorizado mostra os dados-->
+              <thead>
+                <tr>
+                  <th>Aluno</th>
+                  <th>Turma</th>
+                  <th>Observações</th>
+                    <!--<th>Motivo</th>-->
+                  <th>Data e Hora</th>
+                </tr>
+              </thead>
+
+                <tbody>
+                    {% for liberacao in liberacao  %}
+                        <tr>
+                          <td>{{  liberacao.aluno.nome }}</td>
+                          <td>{{  liberacao.aluno.turma.nome }}</td>
+                          <td>{{  liberacao.observacoes }}</td>
+                            <!--<td>{{  liberacao.motivo }}</td>-->
+                          <td>{{  liberacao.data }}</td>
+                        </tr>
+                    </tbody>
+                {% endfor %}
+              <p></p>
+                <font color="#008000">
+                  <h1>Aluno Autorizado a Sair</h1>
+                </font>
+        </table>
+
+        {% elif exibir == 2 %}
+            <!--se for a primeira vez aberta-->
+
+            <table class="ui celled table" >
+                      <!--Se nao autorizado vai mostrar mesagem ou mostrar a msg ao abrir a tela primeira vez-->
+                        <p></p>
+                          <!--se esta autorizado mostra os dados-->
+                          <thead>
+                            <tr>
+                              <th>Aluno</th>
+                              <th>Turma</th>
+                              <th>Observações</th>
+                                <!--<th>Motivo</th>-->
+                              <th>Data e Hora</th>
+                            </tr>
+                          </thead>
+
+                            <tbody>
+                                {% for liberacao in liberacao  %}
+                                    <tr>
+                                      <td>{{  nome_aluno }}</td>
+                                      <td>{{  liberacao.turma.nome }}</td>
+                                      <td>{{  liberacao.observacoes }}</td>
+                                        <!--<td>{{  liberacao.motivo }}</td>-->
+                                      <td>{{  liberacao.data }}</td>
+                                    </tr>
+                                </tbody>
+                            {% endfor %}
+                          <p></p>
+                            <font color="#0000CD">
+                              <h1>Turma Autorizado a Sair</h1>
+                            </font>
+                    </table>
+
+
+        {% elif exibir == 3 %}
+            <!--se nao encontrou autorizacao-->
+            <p></p>
+              <font color="#FF0000">
+                <h1>Não Autorizado a Sair</h1>
+              </font>
+
+          {% elif exibir == 4 %}
+              <!--se nao encontrou autorizacao-->
+              <p></p>
+                <font color="#800000">
+                  <h1>Aluno não encontrado</h1>
+                </font>
+
+
+{% endif %}
+
+
+</div>
+{% include 'rodape.html' %}
