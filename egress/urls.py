@@ -1,3 +1,4 @@
+TESTE
 """egress URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,5 +19,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^', include('egressapp.urls')),#incluir rotas do app 
+    url(r'^', include('egressapp.urls')),#incluir rotas do app
 ]
