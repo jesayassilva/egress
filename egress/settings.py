@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
+SECRET_KEY = 'hcm=58c*rxhqs!5(g4+bof9@g@x6xs6#ppl9eihl+nkdu(&4g0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -79,13 +79,28 @@ WSGI_APPLICATION = 'egress.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 #SQLite3
-
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+'''
+
+#PostgreSQL Heroku
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd235s894ohstu0',
+        'USER': 'zbxmbkgnbqswvv',
+        'PASSWORD': 'e0cd24fcbf0b17c92f398d4c76d86e0bb2b1951dff17acc9b2c9f007cfd5a0ba',
+        'HOST': 'ec2-23-23-243-111.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
 
 #PostgreSQL LOCAL
 '''
@@ -139,12 +154,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATIC_URL = '/static/'
+
 
 
 #email da pagina para o envio do erro
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = 'egresssuporte2017'
+EMAIL_HOST_USER = 'egress.app.suporte@gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
