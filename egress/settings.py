@@ -1,3 +1,5 @@
+TESTE
+
 """
 Django settings for egress project.
 
